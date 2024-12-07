@@ -55,7 +55,7 @@ const CardsVR = (prop) => {
                       handleAddToWishlist(prod.id); // Add to wishlist
                     }
                   }}
-                  className="bg-gray-100 text-red-500 px-4 py-2 rounded-full hover:bg-red-100 shadow-md"
+                  className="bg-gray-100 text-orange-900 px-4 py-2 rounded-full hover:bg-red-100 shadow-md"
                 >
                   {wishlist.includes(prod.id)
                     ? "❤️ Added"
