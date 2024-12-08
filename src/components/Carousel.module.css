@@ -66,14 +66,7 @@
       calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
     )
     translateZ(330px);
-  /* de aici distanta fata de centru */
-  /* transition: transform 0.3s ease; */
 }
-
-/* .banner .slider .item:hover {
-  transform: none;
-} */
-/* sa mearga in fata!!! */
 
 .banner .slider .item img {
   width: 100%;
@@ -106,7 +99,7 @@
 .banner .content h1 {
   font-family: "ICA Rubrik";
   font-size: 10em;
-  line-height: 1.5em;
+  line-height: 2em;
   color: #c2dbe3;
   position: relative;
   bottom: 2vw;
@@ -131,7 +124,7 @@
 }
 
 .banner .content h2 {
-  font-size: 1.7em;
+  font-size: 2em;
   bottom: 2vw;
 }
 
@@ -145,4 +138,53 @@
   background-repeat: no-repeat;
   background-position: top center;
   z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(200px);
+  }
+
+  .banner .slider {
+    width: 180px; /* Smaller width */
+    height: 160px; /* Smaller height */
+    top: 5%; /* Adjust top position */
+    left: calc(50% - 90px); /* Reposition to center */
+  }
+
+  .banner .content h1 {
+    font-size: 5em; /* Smaller font size */
+    line-height: 1.2em; /* Adjust line height */
+  }
+
+  .banner .content .author {
+    display: none; /* Hide author text on small screens */
+  }
+
+  .banner .content h2 {
+    font-size: 1.2em; /* Slightly smaller heading */
+  }
+
+  .banner .content .model {
+    background-size: cover; /* Change background size */
+    height: calc(100vh + 30px); /* Adjust model height */
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+
+    transform: rotateY(
+        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+      )
+      translateZ(100px);
+  }
 }

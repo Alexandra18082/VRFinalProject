@@ -4,11 +4,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { createContext, useState } from "react";
 import BackToTopButton from "./components/Back-to-top";
+import SearchBar from "./components/Search-bar";
 
 export const ProdList = createContext();
 //asa il putem exporta in alte pagini si componente - useContext = facem spread la info in aplicatie fara sa facem prop drill
 export const CartContext = createContext(); // Cart context
 export const WishlistContext = createContext(); // Wishlist context
+export const SearchContext = createContext();
 
 function App() {
   const [db, setDb] = useState([
@@ -612,6 +614,8 @@ function App() {
   // Cart and Wishlist State
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Add to cart function
   const handleAddToCart = (id) => {
@@ -642,19 +646,42 @@ function App() {
     setWishlist(wishlist.filter((itemId) => itemId !== id)); // Removes product by ID
   };
 
+  const handleSearch = (searchTerm) => {
+    const filtered = db.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredItems(filtered);
+    setSearchQuery(searchTerm);
+  };
+
   return (
     <ProdList.Provider value={db}>
       <CartContext.Provider
-        value={{ cart, handleAddToCart, handleRemoveFromCart }}
+        value={{ cart, setCart, handleRemoveFromCart, handleAddToCart }}
       >
-        <WishlistContext.Provider
-          value={{ wishlist, handleAddToWishlist, handleRemoveFromWishlist }}
+        <SearchContext.Provider
+          value={{
+            filteredItems,
+            searchQuery,
+            setFilteredItems,
+            setSearchQuery,
+          }}
         >
-          <Navbar />
-          <Outlet />
-          <Footer />
-          <BackToTopButton />
-        </WishlistContext.Provider>
+          <WishlistContext.Provider
+            value={{
+              wishlist,
+              setWishlist,
+              handleRemoveFromWishlist,
+              handleAddToWishlist,
+            }}
+          >
+            <Navbar cartCount={cart.length} wishlistCount={wishlist.length} />
+            <SearchBar onSearch={handleSearch} />
+            <Outlet />
+            <Footer />
+            <BackToTopButton />
+          </WishlistContext.Provider>
+        </SearchContext.Provider>
       </CartContext.Provider>
     </ProdList.Provider>
   );

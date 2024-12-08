@@ -66,6 +66,7 @@ const Carousel = () => {
         </div>
         <div className={styles.content}>
           <h1 data-content="VOIDSHIFT">VOIDSHIFT</h1>
+
           <div className={styles.author}>
             <h2 className="font-bold">
               The most innovative and futuristic VR experience!

@@ -31,6 +31,7 @@ import HapticsAndMocap from "./pages/Categories/Haptics-and-mocap.jsx";
 import CartPage from "./pages/Cart.jsx";
 import VrPresentation from "./components/Vr-presentation.jsx";
 import Checkout from "./pages/Checkout.jsx";
+import SearchResults from "./pages/Search-result.jsx";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -64,6 +65,7 @@ const routes = createBrowserRouter(
       <Route path="/gift-voucher" element={<GiftVoucher />}></Route>
       <Route path="/special-offers" element={<SpecialOffers />}></Route>
       <Route path="/checkout" element={<Checkout />}></Route>
+      <Route path="/search-result" element={<SearchResults />}></Route>
       <Route path="*" element={<Error />}></Route>
     </Route>
   )

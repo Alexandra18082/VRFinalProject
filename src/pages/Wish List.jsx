@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import { WishlistContext, CartContext, ProdList } from "../App";
-import { Link } from "react-router-dom";
 
 const WishlistPage = () => {
-  const { wishlist } = useContext(WishlistContext); // Access wishlist context
+  const { wishlist, handleRemoveFromWishlist } = useContext(WishlistContext); // Access wishlist context
   const { cart, handleAddToCart } = useContext(CartContext); // Access cart context
   const listOfProd = useContext(ProdList); // Access product list context
 
@@ -27,6 +26,7 @@ const WishlistPage = () => {
                   key={product.id}
                   className="flex justify-between items-center bg-white p-4 rounded-lg shadow-md"
                 >
+                  {/* Product details section */}
                   <div className="flex items-center space-x-4">
                     <img
                       src={product.picturePath}
@@ -39,17 +39,29 @@ const WishlistPage = () => {
                     </div>
                   </div>
 
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleAddToCart(product.id);
-                    }}
-                    className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
-                  >
-                    {cart.includes(product.id)
-                      ? "Added to Cart"
-                      : "Add to Cart"}
-                  </button>
+                  {/* Buttons container (Add to Cart and Remove) */}
+                  <div className="flex items-center space-x-4">
+                    {/* Add to Cart Button */}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleAddToCart(product.id);
+                      }}
+                      className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
+                    >
+                      {cart.includes(product.id)
+                        ? "Added to Cart"
+                        : "Add to Cart"}
+                    </button>
+
+                    {/* Remove Button */}
+                    <button
+                      onClick={() => handleRemoveFromWishlist(product.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

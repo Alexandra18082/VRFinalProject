@@ -147,8 +147,11 @@ const Checkout = () => {
                 placeholder="Enter CVV"
               />
             </div>
-            <div>
-              {cartItems.reduce((acc, item) => acc + item.price, 0)} RON
+            <div className="text-lg font-semibold text-blue-950 flex justify-between items-center bg-gray-200 p-4 rounded-md">
+              <span>Amount to be paid:</span>
+              <span>
+                {cartItems.reduce((acc, item) => acc + item.price, 0)} RON
+              </span>
             </div>
           </div>
         </div>
