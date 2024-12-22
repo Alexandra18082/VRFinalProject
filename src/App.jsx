@@ -7,7 +7,6 @@ import BackToTopButton from "./components/Back-to-top";
 import SearchBar from "./components/Search-bar";
 
 export const ProdList = createContext();
-//asa il putem exporta in alte pagini si componente - useContext = facem spread la info in aplicatie fara sa facem prop drill
 export const CartContext = createContext(); // Cart context
 export const WishlistContext = createContext(); // Wishlist context
 export const SearchContext = createContext();
