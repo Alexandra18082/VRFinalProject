@@ -8,7 +8,7 @@ const SearchResults = () => {
   const { wishlist, handleAddToWishlist, handleRemoveFromWishlist } =
     useContext(WishlistContext);
 
-  const isNoResults = filteredItems.length === 0; // Check if no search results
+  const isNoResults = filteredItems.length === 0;
 
   return (
     <div className="body min-h-screen flex items-center justify-center">
@@ -60,9 +60,9 @@ const SearchResults = () => {
                     onClick={(e) => {
                       e.preventDefault();
                       if (wishlist.includes(prod.id)) {
-                        handleRemoveFromWishlist(prod.id); // Remove from wishlist
+                        handleRemoveFromWishlist(prod.id);
                       } else {
-                        handleAddToWishlist(prod.id); // Add to wishlist
+                        handleAddToWishlist(prod.id);
                       }
                     }}
                     className="bg-gray-100 text-orange-900 px-4 py-2 rounded-full hover:bg-red-100 shadow-md"

@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 
 const CardsVR = (prop) => {
   const listOfProd = useContext(ProdList);
-  const { cart, handleAddToCart } = useContext(CartContext); // Access cart context
+  const { cart, handleAddToCart } = useContext(CartContext);
   const { wishlist, handleAddToWishlist, handleRemoveFromWishlist } =
-    useContext(WishlistContext); // Access wishlist context
+    useContext(WishlistContext);
 
-  // Use the products prop if provided, otherwise filter from context
   const productsToDisplay =
     prop.products ||
     listOfProd.filter((prod) => prod.category === prop.category);
@@ -50,9 +49,9 @@ const CardsVR = (prop) => {
                   onClick={(e) => {
                     e.preventDefault();
                     if (wishlist.includes(prod.id)) {
-                      handleRemoveFromWishlist(prod.id); // Remove from wishlist
+                      handleRemoveFromWishlist(prod.id);
                     } else {
-                      handleAddToWishlist(prod.id); // Add to wishlist
+                      handleAddToWishlist(prod.id);
                     }
                   }}
                   className="bg-gray-100 text-orange-900 px-4 py-2 rounded-full hover:bg-red-100 shadow-md"

@@ -7,8 +7,8 @@ import BackToTopButton from "./components/Back-to-top";
 import SearchBar from "./components/Search-bar";
 
 export const ProdList = createContext();
-export const CartContext = createContext(); // Cart context
-export const WishlistContext = createContext(); // Wishlist context
+export const CartContext = createContext();
+export const WishlistContext = createContext();
 export const SearchContext = createContext();
 
 function App() {

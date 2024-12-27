@@ -5,12 +5,10 @@ const Faq = () => {
   const { pathname } = useLocation();
   const [activeIndex, setActiveIndex] = useState(null);
 
-  // Scroll to top on page change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // Toggle function to expand/collapse FAQ answers
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };

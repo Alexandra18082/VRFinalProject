@@ -70,13 +70,9 @@ const routes = createBrowserRouter(
     </Route>
   )
 );
-// am creat o suita de rute pe care eu sa le folosesc
-// createBrowserRouter = comanda prin care cream rutele
-// createRoutesFromElements = comanda care ne ajuta ca ele sa arate ca tag-uri nu ca obiecte, arata diferit asa.
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={routes} />
-    {/* Acum nu mai este <App/> parintele, acum avem ca main RouterProvider, apoi app apoi home, about, error - app e pus acum sus in const routes */}
   </StrictMode>
 );

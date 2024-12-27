@@ -5,15 +5,10 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted!");
-    // When the user presses the submit button, handleSubmit is called.
-    // The page will not refresh due to e.preventDefault().
-    // The message "Form submitted!" will be logged to the console
   };
 
-  const { cart, handleRemoveFromCart } = useContext(CartContext); // Access cart context
-  const listOfProd = useContext(ProdList); // Access product list context
-
-  // Get the details of products in the cart based on the cart IDs
+  const { cart, handleRemoveFromCart } = useContext(CartContext);
+  const listOfProd = useContext(ProdList);
   const cartItems = listOfProd.filter((prod) => cart.includes(prod.id));
 
   return (

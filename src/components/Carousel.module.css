@@ -152,28 +152,28 @@
   }
 
   .banner .slider {
-    width: 180px; /* Smaller width */
-    height: 160px; /* Smaller height */
-    top: 5%; /* Adjust top position */
-    left: calc(50% - 90px); /* Reposition to center */
+    width: 180px;
+    height: 160px;
+    top: 5%;
+    left: calc(50% - 90px);
   }
 
   .banner .content h1 {
-    font-size: 5em; /* Smaller font size */
-    line-height: 1.2em; /* Adjust line height */
+    font-size: 5em;
+    line-height: 1.2em;
   }
 
   .banner .content .author {
-    display: none; /* Hide author text on small screens */
+    display: none;
   }
 
   .banner .content h2 {
-    font-size: 1.2em; /* Slightly smaller heading */
+    font-size: 1.2em;
   }
 
   .banner .content .model {
-    background-size: cover; /* Change background size */
-    height: calc(100vh + 30px); /* Adjust model height */
+    background-size: cover;
+    height: calc(100vh + 30px);
   }
 }
 

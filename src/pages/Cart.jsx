@@ -3,8 +3,8 @@ import { CartContext, ProdList } from "../App";
 import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  const { cart, handleRemoveFromCart } = useContext(CartContext); // Access cart context
-  const listOfProd = useContext(ProdList); // Access product list context
+  const { cart, handleRemoveFromCart } = useContext(CartContext);
+  const listOfProd = useContext(ProdList);
 
   // Get the details of products in the cart based on the cart IDs
   const cartItems = listOfProd.filter((prod) => cart.includes(prod.id));

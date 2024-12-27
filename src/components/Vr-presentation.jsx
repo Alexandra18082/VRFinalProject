@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "./Vr-presentation.module.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { ProdList, CartContext } from "../App"; // Import CartContext
+import { ProdList, CartContext } from "../App";
 
 const VrPresentation = () => {
   const [productState, setProductState] = useState();
-  const [addedToCart, setAddedToCart] = useState(false); // State to track if the product is added
-  const [notification, setNotification] = useState(""); // Notification state
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [notification, setNotification] = useState("");
   const listOfProd = useContext(ProdList);
-  const { cart, handleAddToCart } = useContext(CartContext); // Access cart context and add to cart function
+  const { cart, handleAddToCart } = useContext(CartContext);
   const param = useParams();
   const navigate = useNavigate();
 
@@ -18,24 +18,22 @@ const VrPresentation = () => {
 
   const handleAddToCartClick = () => {
     if (productState) {
-      // Check if the item is already in the cart
       if (cart.includes(productState.id)) {
-        setNotification("Item already added!"); // Show notification
+        setNotification("Item already added!");
       } else {
-        handleAddToCart(productState.id); // Add the product to the cart
-        setAddedToCart(true); // Change the button text
-        setNotification(""); // Clear any previous notification
+        handleAddToCart(productState.id);
+        setAddedToCart(true);
+        setNotification("");
         console.log(`Product ${productState.name} added to cart`);
 
-        // Reset the "Added to Cart" state after a few seconds
-        setTimeout(() => setAddedToCart(false), 2000); // Reset after 2 seconds
+        setTimeout(() => setAddedToCart(false), 2000);
       }
     }
   };
 
   const handleBuyNow = (productId) => {
-    handleAddToCart(productId); // Add the product to the cart
-    navigate("/cart"); // Redirect to the cart page
+    handleAddToCart(productId);
+    navigate("/cart");
   };
 
   return (
@@ -69,7 +67,7 @@ const VrPresentation = () => {
                   {addedToCart ? "Added to Cart 📦" : "Add to Cart 🛒"}
                 </button>
                 {notification && (
-                  <div className="text-red-500 mt-2">{notification}</div> // Notification for already added item
+                  <div className="text-red-500 mt-2">{notification}</div>
                 )}
                 <button
                   onClick={() => handleBuyNow(productState.id)}

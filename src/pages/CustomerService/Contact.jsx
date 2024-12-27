@@ -4,12 +4,10 @@ import { useLocation } from "react-router-dom";
 const Contact = () => {
   const { pathname } = useLocation();
 
-  // Scroll to top on page change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // Function to copy the phone number to clipboard
   const copyToClipboard = () => {
     const phoneNumber = "0745 333 999";
     navigator.clipboard
@@ -93,7 +91,6 @@ const Contact = () => {
         You can also get in touch with us through social media or by phone:
       </p>
 
-      {/* Phone Number with Copy to Clipboard */}
       <div
         onClick={copyToClipboard}
         className="text-blue-500 cursor-pointer hover:underline mb-4"
