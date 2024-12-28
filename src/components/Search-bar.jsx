@@ -10,14 +10,14 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSearch = () => {
-    onSearch(query); // Pass the query to the App's state
-    navigate("/search-result"); // Navigate to the search results page
-    setQuery(""); // Clear the input after search
+    onSearch(query);
+    navigate("/search-result");
+    setQuery("");
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      handleSearch(); // Trigger the search when Enter is pressed
+      handleSearch();
     }
   };
 
@@ -29,7 +29,7 @@ const SearchBar = ({ onSearch }) => {
           type="text"
           value={query}
           onChange={handleChange}
-          onKeyDown={handleKeyDown} // Detect Enter key press
+          onKeyDown={handleKeyDown}
           placeholder="Search products..."
           className="w-full py-1 px-2 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs shadow-sm transition duration-300 ease-in-out"
         />
